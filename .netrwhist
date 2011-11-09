@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/home/viator/Programming/python/neuro'
+let g:netrw_dirhist_2='/home/viator/Programming/python/neuro/mind'
+let g:netrw_dirhist_3='/home/viator/Programming/python/neuro'
+let g:netrw_dirhist_4='/home/viator/Programming/python/rainbowdocs/rainbowdocs-dev'
+let g:netrw_dirhist_5='/home/viator/Programming/python/rainbowdocs'
+let g:netrw_dirhist_6='/home/viator/Programming/python'
+let g:netrw_dirhist_7='/home/viator/Programming/python/neuro'
+let g:netrw_dirhist_8='/home/viator/Programming/python/neuro/mind'
+let g:netrw_dirhist_9='/home/viator/.vimperator/colors'
