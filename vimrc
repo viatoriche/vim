@@ -70,7 +70,7 @@ set nobackup
 set noswapfile
 set nocompatible
 
-"set viewoptions=cursor,folds
+set viewoptions=cursor,folds
 "au BufWinLeave * mkview
 "au BufWinEnter * silent loadview
 
@@ -89,6 +89,24 @@ autocmd BufReadPost *.htm* set filetype=htmldjango
 au BufNewFile *.py 0r ~/.vim/skel/py.skel | let IndentStyle = "python"
 au BufNewFile *.sh 0r ~/.vim/skel/sh.skel | let IndentStyle = "sh"
 au BufNewFile *.c 0r ~/.vim/skel/c.skel | let IndentStyle = "c"
+
+au BufWritePost * python TryRefresh()
+
+python << EOF
+
+import vim
+
+def TryRefresh():
+  ok = False
+  vim.command('wincmd t')
+  name = vim.current.buffer.name
+
+  if name.find('ProjectTree') != -1:
+    vim.eval('eclim#tree#Refresh()')
+
+  vim.command('wincmd W')
+
+EOF
 
 set completeopt=menu,longest,preview
 
@@ -302,10 +320,11 @@ set iminsert=0
         au WinEnter * :call MyKeyMapHighlight()
 
 let g:EclimLogLevel = 0
-map <c-K> :DjangoContextOpen<cr>
-map U :DjangoViewOpen<cr>
-map F :PythonSearchContext<cr>
-map T :DjangoTemplateOpen<cr>
+map FC :DjangoContextOpen<cr>
+map FU :DjangoViewOpen<cr>
+map FF :PythonSearchContext<cr>
+map FD :PythonFindDefinition<cr>
+map FT :DjangoTemplateOpen<cr>
 map <silent> <C-^>    a<C-^><Esc>:call MyKeyMapHighlight()<CR>
 imap <silent> <C-^>   <C-^><Esc>:call MyKeyMapHighlight()<CR>a
 vmap <silent> <C-^>   <Esc>a<C-^><Esc>:call MyKeyMapHighlight()<CR>
