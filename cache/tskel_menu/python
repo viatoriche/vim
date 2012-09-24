@@ -1,0 +1,11 @@
+
+menu 90.20 TSke&l.class :call tskeleton#ExpandBitUnderCursor("n", 'class')<cr>
+imenu 90.20 TSke&l.class <c-\><c-o>:call tskeleton#ExpandBitUnderCursor("i", 'class')<cr>
+menu 90.20 TSke&l.def :call tskeleton#ExpandBitUnderCursor("n", 'def')<cr>
+imenu 90.20 TSke&l.def <c-\><c-o>:call tskeleton#ExpandBitUnderCursor("i", 'def')<cr>
+menu 90.20 TSke&l.for :call tskeleton#ExpandBitUnderCursor("n", 'for')<cr>
+imenu 90.20 TSke&l.for <c-\><c-o>:call tskeleton#ExpandBitUnderCursor("i", 'for')<cr>
+menu 90.20 TSke&l.if :call tskeleton#ExpandBitUnderCursor("n", 'if')<cr>
+imenu 90.20 TSke&l.if <c-\><c-o>:call tskeleton#ExpandBitUnderCursor("i", 'if')<cr>
+menu 90.20 TSke&l.while :call tskeleton#ExpandBitUnderCursor("n", 'while')<cr>
+imenu 90.20 TSke&l.while <c-\><c-o>:call tskeleton#ExpandBitUnderCursor("i", 'while')<cr>

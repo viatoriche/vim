@@ -1,0 +1,111 @@
+snippet #!
+	#!/usr/bin/python
+	# *- coding: utf-8 -*-
+
+snippet im
+	import ${1:module}
+snippet fr
+	from ${1:module} import ${2:objects}
+# Module Docstring
+snippet docs
+	Author:  ${1:`g:snips_author`}
+	License: ${2:GPL (see http://www.gnu.org/licenses/gpl.txt)}
+	${3}
+snippet if
+	if ${1:test}:
+		${2:# code...}
+snippet eli
+	elif ${1:test}:
+		${2: # code...}
+snippet els
+	else:
+		${2: # code...}
+snippet wh
+	while ${1:condition}:
+		${2:# code...}
+snippet for
+	for ${1:needle} in ${2:haystack}:
+		${3:# code...}
+# New Class
+snippet cla
+	class ${1:ClassName}(${2:}):
+		"""${3:docstring for $1}
+
+		"""
+		def __init__(self${4}):
+			"""${5:docstring for __init__}
+
+			"""
+			${6:$2}.__init__(self${7})
+			${8}
+snippet cl
+	class ${1:ClassName}(${2}):
+		"""${3:docstring for $1}
+
+		"""
+		${4}
+# New Function
+snippet def
+	def ${1:fname}(${2:`indent('.') ? 'self' : ''`}${3}):
+		"""${4:docstring for $1}
+
+		"""
+		${5}
+snippet deff
+	def ${1:fname}(${2:`indent('.') ? 'self' : ''`}${3}):
+		${4}
+# New Method
+snippet defs
+	def ${1:method}(self${2}):
+		"""${3:docstring for $1}
+
+		"""
+		${4:pass}
+# New Property
+snippet pro
+	def ${1:foo}():
+		doc = "${2:The $1 property.}"
+		def fget(self):
+			${3:return self._$1}
+		def fset(self, value):
+			${4:self._$1 = value}
+# Lambda
+snippet lam
+	${1:var} = lambda ${2:vars} : ${3:action}
+snippet .
+	self.
+snippet try Try/Except
+	try:
+		${1:pass}
+	except ${2:Exception}, ${3:e}:
+		${4:raise $3}
+snippet try Try/Except/Else
+	try:
+		${1:pass}
+	except ${2:Exception}, ${3:e}:
+		${4:raise $3}
+	else:
+		${5:pass}
+snippet try Try/Except/Finally
+	try:
+		${1:pass}
+	except ${2:Exception}, ${3:e}:
+		${4:raise $3}
+	finally:
+		${5:pass}
+snippet try Try/Except/Else/Finally
+	try:
+		${1:pass}
+	except ${2:Exception}, ${3:e}:
+		${4:raise $3}
+	else:
+		${5:pass}
+	finally:
+		${6:pass}
+# if __name__ == '__main__':
+snippet ifmain
+	if __name__ == '__main__':
+		${1:main()}
+# __magic__
+snippet _
+	__${1:init}__${2}
