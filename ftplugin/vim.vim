@@ -11,7 +11,7 @@ set smarttab
 set number
 autocmd BufWritePre *.vim normal m`:%s/\s\+$//e ``
 
-nmap <silent> <F6> :TlistAddFilesRecursive . *.vim<CR>
+"nmap <silent> <F6> :TlistAddFilesRecursive . *.vim<CR>
 "nmap <silent> <C-h><C-g> :TSkeletonSetup python.py<CR>
 "nmap <F8>  :PythonSearchContext<cr>
 "nmap <C-h><C-s> <F8>

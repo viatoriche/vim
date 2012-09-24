@@ -58,21 +58,22 @@ if v:version < 700
 endif
 
 
+
 " Make the Tab key do python code completion:
-inoremap <silent> <buffer> <Tab> 
+inoremap <silent> <buffer> <c-x><c-k>
          \<C-R>=<SID>SetVals()<CR>
-         \<C-R>=<SID>TabComplete('down')<CR>
+         "\<C-R>=<SID>TabComplete('down')<CR>
          \<C-R>=<SID>RestoreVals()<CR>
 
 " Make Shift+Tab do python code completion in the reverse direction:
-inoremap <silent> <buffer> <S-Tab> 
+inoremap <silent> <buffer> <c-x><c-k> 
          \<C-R>=<SID>SetVals()<CR>
-         \<C-R>=<SID>TabComplete('up')<CR>
+         "\<C-R>=<SID>TabComplete('up')<CR>
          \<C-R>=<SID>RestoreVals()<CR>
 
 
-if !exists("*s:TabComplete")
-    function! s:TabComplete(direction)
+"if !exists("*s:TabComplete")
+    "function! s:TabComplete(direction)
         " Check if the char before the char under the cursor is an 
         " underscore, letter, number, dot or opening parentheses.
         " If it is, and if the popup menu is not visible, use 
@@ -81,21 +82,21 @@ if !exists("*s:TabComplete")
         " use I_CTRL-P to scroll upward through the popup menu, 
         " depending on the value of a:direction.
         " If the char is some other character, insert a normal Tab:
-        if searchpos('[_a-zA-Z0-9.(]\%#', 'nb') != [0, 0] 
-            if !pumvisible()
-                return "\<C-X>\<C-K>"
-            else
-                if a:direction == 'down'
-                    return "\<C-N>"
-                else
-                    return "\<C-P>"
-                endif
-            endif
-        else
-            return "\<Tab>"
-        endif
-    endfunction
-endif
+        "if searchpos('[_a-zA-Z0-9.(]\%#', 'nb') != [0, 0] 
+            "if !pumvisible()
+                "return "\<C-X>\<C-K>"
+            "else
+                "if a:direction == 'down'
+                    "return "\<C-N>"
+                "else
+                    "return "\<C-P>"
+                "endif
+            "endif
+        "else
+            "return "\<Tab>"
+        "endif
+    "endfunction
+"endif
 
 
 if !exists("*s:SetVals") 

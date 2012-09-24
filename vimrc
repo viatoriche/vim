@@ -59,11 +59,12 @@ set helplang=ru
 "
 syntax on
 
-set foldmethod=manual
+set foldmethod=syntax
 filetype on
 filetype plugin on
 
 set foldcolumn=1
+set nofoldenable
 
 "Вырубаем .swp и ~ (резервные) файлы
 set nobackup
@@ -84,9 +85,12 @@ autocmd BufReadPost *
 "
 " let g:pcs_hotkey = '<LocalLeader>f'
 
+let g:snips_author = 'Viator <viator@via-net.org>'
+
 autocmd BufReadPost *.htm* set filetype=htmldjango
 
-au BufNewFile *.py 0r ~/.vim/skel/py.skel | let IndentStyle = "python"
+au BufNewFile *.py 0r ~/.vim/skeletons/python.py | let IndentStyle = "python"
+"au BufNewFile *.py TSkeletonSetup python.py | let IndentStyle = "python"
 au BufNewFile *.sh 0r ~/.vim/skel/sh.skel | let IndentStyle = "sh"
 au BufNewFile *.c 0r ~/.vim/skel/c.skel | let IndentStyle = "c"
 
@@ -117,8 +121,7 @@ set nowrapscan
 
 " Включаем подсветку выражения, которое ищется в тексте
 set hlsearch
-set ts=2
-
+set ts=2 
 set list
 " " Настройка подсветки невидимых символов
 set listchars=tab:·\ ,trail:·
@@ -167,15 +170,17 @@ vmap <C-h>c <Esc>:q!<CR>
 nmap <F3>    :Explore<CR>
 map <F2>    :w<CR>
 imap <F2>   <Esc>:w<CR>a
-vmap <F6>   <Esc><F6>v
-imap <F6>   <Esc><F6>a
-nmap <F7>    :Tlist<CR>
-nmap <c-F3>    :NERDTreeToggle<CR>
+nmap <F7>    :ProjectTree<CR>
 nmap <F10>    :q!<CR>
 nmap <c-F10>  :wq!<CR>
 
+map <C-F8> :%s/\s\+$//e<CR>
+
 set statusline=%<%f%h%m%r%=format=%{&fileformat}\ file=%{&fileencoding}\ enc=%{&encoding}\ %b\ 0x%B\ %l,%c%V\ %P
-set laststatus=2
+"set laststatus=2
+"set statusline=%{GitBranchInfoString()}
+"set laststatus=2
+"set statusline=%{GitBranch()}
 
 map р h
 map о j
@@ -325,16 +330,24 @@ map FU :DjangoViewOpen<cr>
 map FF :PythonSearchContext<cr>
 map FD :PythonFindDefinition<cr>
 map FT :DjangoTemplateOpen<cr>
+map FR :RopeRename<cr>
 map <silent> <C-^>    a<C-^><Esc>:call MyKeyMapHighlight()<CR>
 imap <silent> <C-^>   <C-^><Esc>:call MyKeyMapHighlight()<CR>a
 vmap <silent> <C-^>   <Esc>a<C-^><Esc>:call MyKeyMapHighlight()<CR>
+
+"imap <silent> <c-j> <Esc>:call TSkeletonMapGoToNextTag()<CR>
 
 " omni
 imap <c-tab> <c-x><c-o>
 " eclim
 imap <c-space> <c-x><c-u>
+" pydiction
+imap <c-j> <c-x><c-k>
+
+map FL  :PyLint<cr>
 
 let g:pydiction_location = '/home/viator/.vim/pydiction/complete-dict'
+let &dictionary = g:pydiction_location
 
 let g:EclimPythonValidate = 1
 let g:EclimMakeLCD = 0
@@ -352,6 +365,9 @@ nmap <c-F11> :ProjectCreate ~/Programming/<Tab><Tab>
 nmap <C-h><C-c>  <F12>
 nmap <C-h><C-p>  <c-F12>
 nmap <C-h><C-r>  :!gvim /tmp/null.py -c PythonRegex&<cr>
+nmap <silent> <c-F6> :ProjectTree<cr>
+nmap <c-h><c-b>     :buffer <Tab>
+imap <c-h><c-b>     <Esc>:buffer <Tab>
 
 " Eclipse bindings
 
@@ -368,19 +384,18 @@ nmap <C-h><C-r>  :!gvim /tmp/null.py -c PythonRegex&<cr>
 "nmap <silent> <c-m> :call eclim#vimplugin#FeedKeys('Ctrl+M')<cr>
 "
 
-"au BufRead * python chdir_from_filename()
+map FD   :python getpydocs()<cr>
 
 python << EOF
 
 import vim
 import os
-import os.path
 
-def chdir_from_filename():
-    try:
-        cb = vim.current.buffer
-        vim.command('lcd %s' % os.path.dirname(cb.name))
-    except:
-        pass
+cb = vim.current.buffer
+
+def getpydocs():
+    vim.command('!pdc ' + cb.name + '| less')
 
 EOF
+
+" EPIC ADDONS

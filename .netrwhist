@@ -1,9 +1,9 @@
 let g:netrw_dirhistmax  =10
 let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/home/viator/.vim'
-let g:netrw_dirhist_2='/home/viator'
-let g:netrw_dirhist_3='/home/viator/ bin'
-let g:netrw_dirhist_4='/home/viator'
-let g:netrw_dirhist_5='/home/viator/bin'
-let g:netrw_dirhist_6='/home/viator'
-let g:netrw_dirhist_7='/home/viator/bin'
+let g:netrw_dirhist_1='/home/viator/Programming/c/Seed/obj'
+let g:netrw_dirhist_2='/home/viator/Programming/c/Seed'
+let g:netrw_dirhist_3='/home/viator/Programming/c/Seed/old'
+let g:netrw_dirhist_4='/home/viator/Programming/c/Seed'
+let g:netrw_dirhist_5='/home/viator/Programming/c/Seed/bin'
+let g:netrw_dirhist_6='/home/viator/Programming/c/Seed'
+let g:netrw_dirhist_7='/home/viator/Programming/c/Seed/framework'

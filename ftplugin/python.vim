@@ -15,9 +15,10 @@ set shiftwidth=4
 set expandtab
 set smarttab
 set number
-autocmd BufWritePre *.py normal m`:%s/\s\+$//e ``
+autocmd BufWritePre *.py normal m':%s/\s\+$//e'
 set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
 
+let &dictionary = g:pydiction_location
 nmap <silent> <F6> :TlistAddFilesRecursive . *.py<CR>
 nmap <silent> <C-h><C-g> :TSkeletonSetup python.py<CR>
 nmap <F8>  :PythonSearchContext<cr>
