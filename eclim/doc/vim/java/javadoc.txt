@@ -1,6 +1,5 @@
 *vim-java-javadoc*
 
-
 Javadoc Support
 ***************
 
@@ -12,21 +11,6 @@ Commenting
 
 Eclim provides the :JavaDocComment command which will add or update
 the javadoc comments for the element under the cursor.
-
-Note: The insertion of javadoc comments is done externally with Eclipse
-  and with that comes a couple caveats (|vim-issues|).
-
-
-Configuration
-=============
-
-Eclim Settings
-
-- org.eclim.user.name - Used as the name portion of the author tag.
-  Consult the settings page (|vim-settings|) for more info.
-
-- org.eclim.user.email - Used as the email portion of the author tag.
-  Consult the settings page (|vim-settings|) for more info.
 
 *:JavaDocSearch*
 
@@ -42,7 +26,7 @@ The only difference is that you use :JavaDocSearch instead of
 
 The results will be displayed in a window and you can simply hit
 <enter> on an entry to open it using the browser you configured via
-g:EclimBrowser (|g-eclimbrowser|).
+g:EclimBrowser (|vim-core-eclim#g:EclimBrowser|).
 
 The locations of the javadocs are determined via your Eclipse
 project's .classpath file.  For each library entry you can define a
@@ -59,34 +43,6 @@ file, etc).
 
 <
 
-
-Warning: Searching for classes in the jdk requires the JRE_CONTAINER entry in
-  your .classpath file.  Some third party plugins may create java
-  projects with this entry ommitted (like android projects created by
-  the Android Development Tools).  In these cases you can manually add
-  the following to your project's .classpath file:>
-
-     <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-
-  <
-
-
-
-Configuration
-=============
-
-Vim Variables
-
-*g:EclimJavaDocSearchSingleResult*
-
-- g:EclimJavaDocSearchSingleResult - Determines what action to take
-  when only a singe result is found.
-
-  Possible values include:
-
-  - 'open' - open the result in a browser.
-
-  - 'lopen' - open the temp window to display the result.
 
 *:Javadoc*
 
@@ -111,7 +67,30 @@ Note: Please note that this command is not intended to be a full
 Configuration
 =============
 
-Eclim Settings
+Vim Settings (|vim-settings|)
+
+*g:EclimJavaDocSearchSingleResult*
+
+- g:EclimJavaDocSearchSingleResult (Default: 'open') - Determines what
+  action to take when only a singe result is found.
+
+  Possible values include:
+
+  - 'open' - open the result in a browser.
+
+  - 'lopen' - open the temp window to display the result.
+
+- g:EclimLocationListHeight (Default: 10) - Sets the height in lines
+  of the location list window when eclim opens it to display search
+  results.
+
+Eclim Settings (|vim-settings|)
+
+- org.eclim.user.name - Used as the name portion of the author tag.
+  Consult the settings page (|vim-settings|) for more info.
+
+- org.eclim.user.email - Used as the email portion of the author tag.
+  Consult the settings page (|vim-settings|) for more info.
 
 - org.eclim.java.doc.dest (Default: doc) - The project relative
   directory where the javadocs with be written to.

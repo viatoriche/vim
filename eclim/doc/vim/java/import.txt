@@ -1,6 +1,5 @@
 *vim-java-import*
 
-
 Automated Imports
 *****************
 
@@ -9,7 +8,7 @@ Automated Imports
 The automated import functionality is pretty straightforward.  Simply
 place the cursor over the element to import and issue the command:
 
-   :JavaImport
+:JavaImport
 
 and one of the following events will occur:
 
@@ -29,7 +28,7 @@ and one of the following events will occur:
 If you have numerous elements that you wish to import, you can also
 use:
 
-   :JavaImportMissing
+:JavaImportMissing
 
 which will look for all undefined types and attempt to find possible
 imports for them.  If there is a single result then that result will
@@ -57,7 +56,7 @@ commands:
 Configuration
 =============
 
-Vim Variables
+Vim Settings (|vim-settings|)
 
 *g:EclimJavaImportExclude*
 
@@ -94,7 +93,7 @@ Vim Variables
 
     <
 
-Eclim Settings
+Eclim Settings (|vim-settings|)
 
 *org.eclipse.jdt.ui.importorder*
 

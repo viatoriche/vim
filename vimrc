@@ -94,7 +94,7 @@ au BufNewFile *.py 0r ~/.vim/skeletons/python.py | let IndentStyle = "python"
 au BufNewFile *.sh 0r ~/.vim/skel/sh.skel | let IndentStyle = "sh"
 au BufNewFile *.c 0r ~/.vim/skel/c.skel | let IndentStyle = "c"
 
-au BufWritePost * python TryRefresh()
+"au BufWritePost * python TryRefresh()
 
 python << EOF
 
@@ -338,11 +338,21 @@ vmap <silent> <C-^>   <Esc>a<C-^><Esc>:call MyKeyMapHighlight()<CR>
 "imap <silent> <c-j> <Esc>:call TSkeletonMapGoToNextTag()<CR>
 
 " omni
-imap <c-tab> <c-x><c-o>
-" eclim
-imap <c-space> <c-x><c-u>
+imap <c-space> <c-x><c-o>
+" rope
+imap <c-tab> <M-/>
 " pydiction
 imap <c-j> <c-x><c-k>
+
+function! Tab_Or_Complete()
+  if col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
+    return "\<C-N>"
+  else
+    return "\<Tab>"
+  endif
+endfunction
+
+imap <Tab> <C-R>=Tab_Or_Complete()<CR>
 
 map FL  :PyLint<cr>
 

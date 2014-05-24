@@ -1,7 +1,7 @@
 let g:netrw_dirhistmax  =10
 let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/home/viator/Programming/python/panda3d/join'
-let g:netrw_dirhist_2='/home/viator/Programming/python/panda3d'
-let g:netrw_dirhist_3='/home/viator/Programming/python/panda3d/shapeGen'
-let g:netrw_dirhist_4='/home/viator/Programming/python/panda3d'
-let g:netrw_dirhist_5='/home/viator/Programming/python/panda3d/demomaster-0.8'
+let g:netrw_dirhist_1='/home/viator/server/viator/warband/native/Module_system 1.153/Native'
+let g:netrw_dirhist_2='/home/viator/server/viator/warband/native/Module_system 1.153'
+let g:netrw_dirhist_3='/home/viator/server/viator/tk2www/tk2www'
+let g:netrw_dirhist_4='/home/viator/Programming/python/jbot/trunk/modules'
+let g:netrw_dirhist_5='/home/viator/.vim/autoload/xolox'
