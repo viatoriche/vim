@@ -1,7 +1,9 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_cnt =7
 let g:netrw_dirhist_1='/home/viator/server/viator/warband/native/Module_system 1.153/Native'
 let g:netrw_dirhist_2='/home/viator/server/viator/warband/native/Module_system 1.153'
 let g:netrw_dirhist_3='/home/viator/server/viator/tk2www/tk2www'
 let g:netrw_dirhist_4='/home/viator/Programming/python/jbot/trunk/modules'
 let g:netrw_dirhist_5='/home/viator/.vim/autoload/xolox'
+let g:netrw_dirhist_6='/home/viator'
+let g:netrw_dirhist_7='/home/viator/.vim'

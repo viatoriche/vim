@@ -336,23 +336,17 @@ imap <silent> <C-^>   <C-^><Esc>:call MyKeyMapHighlight()<CR>a
 vmap <silent> <C-^>   <Esc>a<C-^><Esc>:call MyKeyMapHighlight()<CR>
 
 "imap <silent> <c-j> <Esc>:call TSkeletonMapGoToNextTag()<CR>
+"
+
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete
 
 " omni
-imap <c-space> <c-x><c-o>
+inoremap <c-space> <c-x><c-o>
 " rope
-imap <c-tab> <M-/>
+inoremap <c-tab> <M-/>
 " pydiction
-imap <c-j> <c-x><c-k>
-
-function! Tab_Or_Complete()
-  if col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
-    return "\<C-N>"
-  else
-    return "\<Tab>"
-  endif
-endfunction
-
-imap <Tab> <C-R>=Tab_Or_Complete()<CR>
+inoremap <c-j> <c-x><c-k>
 
 map FL  :PyLint<cr>
 
