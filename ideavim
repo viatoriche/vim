@@ -1,0 +1,78 @@
+set sc
+
+let mapleader = "\\"
+
+map <Leader>s :1,$s/[ ]*$//g<CR>
+
+set guioptions=acm
+set mouse=a
+set clipboard=autoselect
+set guifont=Terminus\ 10
+set smartindent
+
+syntax on
+
+set foldmethod=syntax
+filetype on
+filetype plugin on
+
+set foldcolumn=1
+set nofoldenable
+
+"Вырубаем .swp и ~ (резервные) файлы
+set viewoptions=cursor,folds
+
+set mouse=a
+set incsearch
+set nowrapscan
+
+" Включаем подсветку выражения, которое ищется в тексте
+set hlsearch
+set ts=2 
+set list
+" " Настройка подсветки невидимых символов
+set listchars=tab:·\ ,trail:·
+
+nmap <C-N><C-N> :set invnumber <CR>
+
+" Включаем перенос строк
+set wrap
+" Перенос строк по словам, а не по буквам
+set linebreak
+
+let g:pyref_mapping = 'K'
+
+set statusline=%<%f%h%m%r%=format=%{&fileformat}\ file=%{&fileencoding}\ enc=%{&encoding}\ %b\ 0x%B\ %l,%c%V\ %P
+"set laststatus=2
+"set statusline=%{GitBranchInfoString()}
+"set laststatus=2
+"set statusline=%{GitBranch()}
+
+map р h
+map о j
+map л k
+map д l
+map в d
+map ш i
+map ф a
+map г u
+
+
+" Настраиваем переключение раскладок клавиатуры по <C-^>
+set keymap=russian-jcukenwin
+" Раскладка по умолчанию - английская
+set imsearch=-1
+set iminsert=0
+
+        function MyKeyMapHighlight()
+            if &iminsert == 0
+                hi StatusLine ctermfg=DarkBlue guifg=Black
+            else
+                hi StatusLine ctermfg=DarkGreen guifg=Red
+            endif
+        endfunction
+
+        call MyKeyMapHighlight()
+
+        au WinEnter * :call MyKeyMapHighlight()
+
